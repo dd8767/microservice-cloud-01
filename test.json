@@ -1,0 +1,25 @@
+{
+  "name": "microservice-config-application",
+  "profiles": [
+    "prod"
+  ],
+  "label": "master",
+  "version": "6c33cbd9742e092e51325a0a3d9c1b63f9f36aca",
+  "state": null,
+  "propertySources": [
+    {
+      "name": "https://github.com/dd8767/microservice-cloud-config.git/microservice-config-application.yml (document #2)",
+      "source": {
+        "server.port": 4002,
+        "spring.profiles": "prod",
+        "spring.application.name": "microservice-config-prod"
+      }
+    },
+    {
+      "name": "https://github.com/dd8767/microservice-cloud-config.git/microservice-config-application.yml (document #0)",
+      "source": {
+        "spring.profiles.active": "dev"
+      }
+    }
+  ]
+}
