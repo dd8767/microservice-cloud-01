@@ -18,7 +18,7 @@ public class ConfigClient {
 
 
     @GetMapping("/config")
-    public String config() {
+    public String getConfig() {
         String content = "applicationName: " + applicationName + ", port: " + port;
         System.out.println(content);
         return content;
