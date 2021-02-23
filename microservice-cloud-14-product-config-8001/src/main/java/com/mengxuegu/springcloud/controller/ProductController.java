@@ -3,6 +3,8 @@ package com.mengxuegu.springcloud.controller;
 import com.mengxuegu.springcloud.entities.Product;
 import com.mengxuegu.springcloud.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -10,8 +12,13 @@ import java.util.List;
 /**
  * @Auther: 梦学谷
  */
+@RefreshScope
 @RestController
 public class ProductController {
+
+    @Value("${emp.name}")
+    private String name;
+
 
     @Autowired
     private ProductService productService;
@@ -29,6 +36,11 @@ public class ProductController {
     @RequestMapping(value = "/product/list", method = RequestMethod.GET)
     public List<Product> list() {
         return productService.list();
+    }
+
+    @GetMapping("/hello")
+    public String hello() {
+        return name;
     }
 
 }
